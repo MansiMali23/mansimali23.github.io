@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mansi PrakashKumar — Development Engineer</title>
+  <meta name="description" content="Mansi PrakashKumar — Development Engineer at Comcast. B.Tech CSE from SASTRA, Thanjavur." />
+  <meta property="og:title" content="Mansi PrakashKumar" />
+  <meta property="og:description" content="Development Engineer at Comcast · SASTRA '25" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --text: #181816;
+      --muted: #706f6a;
+      --faint: #eceae4;
+      --border: #e4e2dc;
+      --tag-bg: #f0ede8;
+      --tag-text: #4a4a46;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111110;
+        --surface: #1a1a18;
+        --text: #eeece8;
+        --muted: #888880;
+        --faint: #252522;
+        --border: #2c2c29;
+        --tag-bg: #222220;
+        --tag-text: #a8a8a0;
+      }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .wrap { max-width: 700px; margin: 0 auto; padding: 0 28px; }
+
+    /* NAV */
+    nav {
+      padding: 32px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-links { list-style: none; display: flex; gap: 24px; }
+
+    .nav-links a {
+      font-size: 13.5px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      padding: 76px 0 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 .italic { font-style: italic; color: var(--muted); }
+
+    .hero-title-line {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-bio {
+      font-size: 16.5px;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .cta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12.5px;
+      padding: 9px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .btn-solid { background: var(--text); color: var(--bg); border: 1px solid var(--text); }
+    .btn-solid:hover { opacity: 0.82; }
+
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+    .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+    /* SECTIONS */
+    section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    /* ABOUT */
+    .about-text { font-size: 16px; color: var(--muted); line-height: 1.75; max-width: 580px; }
+    .about-text + .about-text { margin-top: 14px; }
+
+    /* SKILLS */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 5px 13px;
+      border-radius: 4px;
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 28px;
+      padding: 26px 0;
+      border-top: 1px solid var(--faint);
+    }
+    .exp-item:first-child { border-top: none; padding-top: 0; }
+
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-top: 3px;
+    }
+
+    .exp-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      margin-top: 5px;
+    }
+
+    .exp-role { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+    .exp-company { font-size: 13.5px; color: var(--muted); margin-bottom: 10px; }
+    .exp-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .exp-tags .tag { font-size: 11px; padding: 3px 10px; }
+
+    /* EDUCATION */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 0 28px;
+      padding: 20px 0;
+      border-top: 1px solid var(--faint);
+    }
+    .edu-item:first-child { border-top: none; padding-top: 0; }
+
+    .edu-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      padding-top: 3px;
+    }
+
+    .edu-degree { font-size: 15px; font-weight: 500; margin-bottom: 3px; }
+    .edu-school { font-size: 13.5px; color: var(--muted); }
+
+    /* PROJECTS */
+    .projects-grid { display: grid; gap: 14px; }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 24px;
+      transition: border-color 0.15s;
+    }
+    .proj-card:hover { border-color: var(--muted); }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .proj-name { font-size: 15px; font-weight: 500; }
+
+    .proj-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .proj-link:hover { color: var(--text); border-color: var(--muted); }
+
+    .proj-assoc {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .proj-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-tags .tag { font-size: 11px; padding: 3px 10px; }
+
+    /* CERTIFICATIONS */
+    .cert-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--faint);
+    }
+    .cert-item:first-child { border-top: none; padding-top: 0; }
+
+    .cert-name { font-size: 14.5px; }
+    .cert-issuer { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    .cert-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* CONTACT */
+    .contact-blurb {
+      font-size: 16.5px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 0 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    .footer-links { display: flex; gap: 20px; }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      nav { flex-direction: column; align-items: flex-start; }
+      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 4px; }
+      .exp-date, .edu-date { padding-top: 0; margin-bottom: 2px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">Development Engineer · Chennai, India</p>
+    <h1>Hi, I'm <span class="italic">Mansi</span> —</h1>
+    <p class="hero-title-line">Development Engineer 1 at Comcast · SASTRA '25</p>
+    <p class="hero-bio">
+      Software engineer focused on backend development, microservices, and clean system design. Recently graduated in Computer Science from SASTRA University and building production systems at Comcast.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:mansi.btech.cse@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/mansi-mali" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/MansiMali23" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I'm a Software Engineer at Comcast, recently graduated in Computer Science from SASTRA University. After a successful internship at Comcast, I transitioned into a full-time role, where I continue to work on backend development.
+    </p>
+    <p class="about-text">
+      My technical expertise includes Java, Spring Boot, and microservices architecture. I'm driven by clean code practices, strong system design principles, and a continuous learning mindset. I enjoy solving real-world problems through thoughtful, efficient engineering and collaboration. 💻
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-wrap">
+      <span class="tag">Java</span>
+      <span class="tag">Python</span>
+      <span class="tag">Spring Boot</span>
+      <span class="tag">Spring Framework</span>
+      <span class="tag">Microservices</span>
+      <span class="tag">Object-Oriented Programming</span>
+      <span class="tag">REST APIs</span>
+      <span class="tag">pandas</span>
+      <span class="tag">Speech Recognition</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Azure</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Git</span>
+      <span class="tag">Linux</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">Experience</p>
+
+    <div class="exp-item">
+      <div class="exp-date">
+        Jul 2025 – Present<br />
+        <span class="exp-badge">Full-time · Hybrid</span>
+      </div>
+      <div>
+        <div class="exp-role">Development Engineer 1</div>
+        <div class="exp-company">Comcast · Chennai, India</div>
+        <div class="exp-desc">
+          Building and maintaining production-grade backend services for Comcast's media and connectivity platforms. Working with microservices architecture to deliver scalable, reliable software solutions.
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Azure</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">
+        Jan 2025 – Jun 2025<br />
+        <span class="exp-badge">Internship</span>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineering Intern</div>
+        <div class="exp-company">Comcast · Chennai, India</div>
+        <div class="exp-desc">
+          Contributed to backend services during a 6-month pre-placement internship. Worked with engineering teams on Java and Spring Boot projects, gaining deep exposure to Comcast's engineering workflows and deployment pipelines — leading to a full-time offer. Also participated in the Leadership Journey with the 9th Dimension Cohort, receiving a certificate of appreciation for teamwork and leadership.
+        </div>
+        <div class="exp-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">Git</span>
+          <span class="tag">Agile</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label">Education</p>
+
+    <div class="edu-item">
+      <div class="edu-date">2021 – 2025</div>
+      <div>
+        <div class="edu-degree">B.Tech — Computer Science & Engineering</div>
+        <div class="edu-school">Shanmugha Arts, Science, Technology & Research Academy (SASTRA), Thanjavur</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <p class="section-label">Certifications</p>
+
+    <div class="cert-item">
+      <div>
+        <div class="cert-name">Microsoft Azure Fundamentals (AZ-900)</div>
+        <div class="cert-issuer">Microsoft</div>
+      </div>
+      <div class="cert-date">2024</div>
+    </div>
+
+    <div class="cert-item">
+      <div>
+        <div class="cert-name">Microsoft Azure Administrator Associate (AZ-104)</div>
+        <div class="cert-issuer">Microsoft</div>
+      </div>
+      <div class="cert-date">2024</div>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <span class="proj-name">Dysarthric Automatic Speech Recognition System</span>
+          <a class="proj-link" href="https://github.com/MansiMali23/Dysarthric-Automatic-Speech-Recognition-System-" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="proj-assoc">↳ SASTRA University · Academic Project</p>
+        <p class="proj-desc">
+          A novel approach for dysarthric speech recognition using Dynamic Time Warping (DTW) to extract vision-based Mel scale spectrogram features. These features are classified using a K-Nearest Neighbors (KNN) model, addressing variability and non-linear distortions in dysarthric speech for accurate recognition.
+        </p>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Speech Recognition</span>
+          <span class="tag">DTW</span>
+          <span class="tag">KNN</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <span class="proj-name">Sales Analysis — Pandas & Python</span>
+          <a class="proj-link" href="https://github.com/MansiMali23/Sales-Analysis---Pandas-Python" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="proj-desc">
+          Analysed 12 months of electronics store sales data — hundreds of thousands of purchase records — to answer real business questions about trends by month, product type, cost, and purchase location. Built using Python Pandas and Matplotlib for data wrangling and visualisation.
+        </p>
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">pandas</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Data Analysis</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <p class="contact-blurb">
+      Open to conversations about interesting engineering problems, new opportunities, or collaborations. Email is the best way to reach me — I actually read it.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:mansi.btech.cse@gmail.com">mansi.btech.cse@gmail.com</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/mansi-mali" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/MansiMali23" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2025 Mansi PrakashKumar</span>
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/mansi-mali" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/MansiMali23" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:mansi.btech.cse@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
